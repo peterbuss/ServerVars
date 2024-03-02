@@ -10,7 +10,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build && parcel build fetchAI.js 'fetchAI.js'",
+    "build": "vite build",
     "preview": "vite preview"
   }
 }

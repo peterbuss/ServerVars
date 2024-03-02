@@ -18,7 +18,7 @@ document.addEventListener('submit', (e) => {
 
 async function fetchReply(){
 
-    const url = 'https://netlifyserverlessfcts.netlify.app/fetchAI.js' ;
+    const url = 'https://servervars.netlify.app/netlify/functions/fetchAI' ;
 
 
     const url_params = {
