@@ -1,0 +1,16 @@
+{
+  "name": "project",
+  "dependencies": {
+    "openai": "3.2.1",
+    "parcel": "^2.12.0"
+  },
+  "devDependencies": {
+    "vite": "latest"
+  },
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build && parcel build fetchAI.js 'fetchAI.js'",
+    "preview": "vite preview"
+  }
+}
