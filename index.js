@@ -29,10 +29,24 @@ async function fetchReply(){
                 body: JSON.stringify(conversationStr)
             };
     console.log('url_params', url_params);
-    const response = await fetch(url, url_params);
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "text/plain",
+        },
+        body: conversationStr
+    });
     const data = await response.json();
-    console.log(data);
 
+/*
+Challenge:
+    1. Update the two commented lines of code to get this working.
+    2. Push to GitHub to redeploy, then test.
+*/
+    conversationStr+=` ${data.reply.choices[0].text} ->`
+    renderTypewriterText(data.reply.choices[0].text)
+
+    console.log(data);
 
 }
 
