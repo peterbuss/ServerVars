@@ -31,6 +31,7 @@ async function fetchReply(){
     });
     const data = await response.json();
     console.log("-- after fetch and .json()");
+    console.log("data", data)
 
 /*
 Challenge:
@@ -39,8 +40,6 @@ Challenge:
 */
     conversationStr+=` ${data.reply.choices[0].text} ->`
     renderTypewriterText(data.reply.choices[0].text)
-
-    console.log(data);
 
 }
 
