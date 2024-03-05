@@ -9,8 +9,9 @@ const configuration = new Configuration({
 const handler = async (event) => {
   try {
 
+    // davinci:ft-scrimba-2023-03-30-23-10-03
     const response = await openai.createCompletion({
-      model: 'davinci:ft-scrimba-2023-03-30-23-10-03',
+      model: 'davinci-002',
       prompt: event.body,
       presence_penalty: 0,
       frequency_penalty: 0.3,
