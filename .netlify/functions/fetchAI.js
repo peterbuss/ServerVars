@@ -40,7 +40,6 @@ Challenge:
       }),
     }
   } catch (error) {
-    console.log("-- error in handler returning error message");
     return { statusCode: 500, body: error.toString() }
   }
 }

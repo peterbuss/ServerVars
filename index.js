@@ -22,14 +22,21 @@ async function fetchReply(){
 
 
     console.log("-- call fetch");
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "text/plain",
-        },
-        body: conversationStr
-    });
-    const data = await response.json();
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "text/plain",
+            },
+            body: conversationStr
+        });
+        
+        const data = await response.json();
+    
+    } catch(error) {
+        console.log(error.toString())
+    }
+
     console.log("-- after fetch and .json()");
     console.log("data", data);
 
