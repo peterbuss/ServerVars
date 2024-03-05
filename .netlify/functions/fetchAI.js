@@ -10,7 +10,7 @@ const handler = async (event) => {
   try {
 
     // davinci:ft-scrimba-2023-03-30-23-10-03
-    console.log("-- at start of handler fetchAI");
+    
     const response = await openai.createCompletion({
       model: 'davinci:ft-scrimba-2023-03-30-23-10-03',
       prompt: event.body,
@@ -21,7 +21,7 @@ const handler = async (event) => {
       stop: ['\n', '->']
     })
 
-    console.log("--- after call to completions");
+    
 
 /*
 Challenge:
