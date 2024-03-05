@@ -27,9 +27,17 @@ async function fetchReply(){
             method: 'POST',
             headers: {
                 'content-type': 'text/plain',
-            },
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'POST',
+                'Access-Control-Allow-Headers': '*',
+            },            
+
             body: JSON.stringify(conversationStr)
         });
+
+        if (!response.ok) {
+            throw new Error(`Error! status: ${response.status}`);
+        }
         
         const data = await response.json();
     
