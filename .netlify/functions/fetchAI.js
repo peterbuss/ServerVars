@@ -11,7 +11,7 @@ const handler = async (event) => {
 
     // davinci:ft-scrimba-2023-03-30-23-10-03
     const response = await openai.createCompletion({
-      model: 'davinci-002',
+      model: 'davinci:ft-scrimba-2023-03-30-23-10-03',
       prompt: event.body,
       presence_penalty: 0,
       frequency_penalty: 0.3,
