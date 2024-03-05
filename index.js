@@ -21,14 +21,7 @@ async function fetchReply(){
     const url = 'https://servervars.netlify.app/.netlify/functions/fetchAI' ;
 
 
-    const url_params = {
-                method: "POST",
-                headers: {
-                    "Content-Type": "text/plain"
-                },
-                body: JSON.stringify(conversationStr)
-            };
-    console.log('url_params', url_params);
+    console.log("-- call fetch");
     const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -37,6 +30,7 @@ async function fetchReply(){
         body: conversationStr
     });
     const data = await response.json();
+    console.log("-- after fetch and .json()");
 
 /*
 Challenge:
