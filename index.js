@@ -26,9 +26,9 @@ async function fetchReply(){
         const response = await fetch(url, {
             method: "POST",
             headers: {
-                "Content-Type": "text/plain",
+                "content-type": "text/plain",
             },
-            body: conversationStr
+            body: JSON.stringify(conversationStr)
         });
         
         const data = await response.json();
