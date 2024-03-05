@@ -20,8 +20,8 @@ async function fetchReply(){
 
     const url = 'https://servervars.netlify.app/.netlify/functions/fetchAI' ;
 
-
     console.log("-- call fetch");
+
     try {
         const response = await fetch(url, {
             method: "POST",
@@ -33,20 +33,20 @@ async function fetchReply(){
         
         const data = await response.json();
     
-    } catch(error) {
-        console.log(error.toString())
-    }
-
-    console.log("-- after fetch and .json()");
-    console.log("data", data);
+        console.log("-- after fetch and .json()");
+        console.log("data", data);
 
 /*
 Challenge:
     1. Update the two commented lines of code to get this working.
     2. Push to GitHub to redeploy, then test.
 */
-    conversationStr+=` ${data.reply.choices[0].text} ->`;
-    renderTypewriterText(data.reply.choices[0].text);
+        conversationStr+=` ${data.reply.choices[0].text} ->`;
+        renderTypewriterText(data.reply.choices[0].text);
+
+    } catch(error) {
+        console.log("Error:", error.toString());
+    }
 
 }
 
