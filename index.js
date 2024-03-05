@@ -31,10 +31,11 @@ async function fetchReply(){
 
             body: JSON.stringify(conversationStr)
         });
-
+/* 
         if (!response.ok) {
             throw new Error(`Error! status: ${response.status}`);
         }
+         */
         
         const data = await response.json();
     
