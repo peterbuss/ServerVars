@@ -27,8 +27,10 @@ async function fetchReply(){
             method: 'POST',
             headers: {
                 'content-type': 'text/plain',
-            },            
-
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'POST, PUT, PATCH, GET, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': '*',
+            },
             body: JSON.stringify(conversationStr)
         });
 /* 
