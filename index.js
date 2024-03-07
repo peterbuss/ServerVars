@@ -28,7 +28,7 @@ async function fetchReply(){
             headers: {
                 'content-type': 'text/plain',
             },
-            body: JSON.stringify(conversationStr)
+            body: conversationStr
         });
 /* 
         if (!response.ok) {
