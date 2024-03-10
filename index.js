@@ -1,11 +1,3 @@
-/* import { Configuration, OpenAIApi } from 'openai';
-
-const configuration = new Configuration({
-    apiKey: process.env.OPENAI_API_KEY,
-});
-
-const openai = new OpenAIApi(configuration);
- */
 const chatbotConversation = document.getElementById('chatbot-conversation');
  
 let conversationStr = '';
@@ -37,16 +29,7 @@ async function fetchReply(){
     const data = await response.json();
     console.log(data);
 
-    /* const response = await openai.createCompletion({
-        model: 'davinci:ft-scrimba-2023-03-30-23-10-03',
-        prompt: conversationStr,
-        presence_penalty: 0,
-        frequency_penalty: 0.3,
-        max_tokens: 100,
-        temperature: 0,
-        stop: ['\n', '->']
-    }); */
-
+    
     /* conversationStr += ` ${response.data.choices[0].text} \n`;
     renderTypewriterText(response.data.choices[0].text);
     console.log(conversationStr); */
