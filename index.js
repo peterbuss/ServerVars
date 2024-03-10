@@ -1,59 +1,41 @@
+import { Configuration, OpenAIApi } from 'openai';
+
+const configuration = new Configuration({
+    apiKey: process.env.OPENAI_API_KEY,
+});
+
+const openai = new OpenAIApi(configuration);
+
 const chatbotConversation = document.getElementById('chatbot-conversation');
  
 let conversationStr = '';
  
 document.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const userInput = document.getElementById('user-input'); 
-    conversationStr += `${userInput.value}`;
-    console.log("Cs", conversationStr);
-    fetchReply();
-    const newSpeechBubble = document.createElement('div');
-    newSpeechBubble.classList.add('speech', 'speech-human');
-    chatbotConversation.appendChild(newSpeechBubble);
-    newSpeechBubble.textContent = userInput.value;
-    userInput.value = '';
-    chatbotConversation.scrollTop = chatbotConversation.scrollHeight;
+    e.preventDefault()
+    const userInput = document.getElementById('user-input') 
+    conversationStr += ` ${userInput.value} ->`
+    fetchReply()
+    const newSpeechBubble = document.createElement('div')
+    newSpeechBubble.classList.add('speech', 'speech-human')
+    chatbotConversation.appendChild(newSpeechBubble)
+    newSpeechBubble.textContent = userInput.value
+    userInput.value = ''
+    chatbotConversation.scrollTop = chatbotConversation.scrollHeight
 }) ;
 
 async function fetchReply(){
-
-    //const url = 'https://servervars.netlify.app/.netlify/functions/fetchAI' ;
-    const url = 'https://servervars.netlify.app/.netlify/functions/fetchAI' ;
-
-    console.log("-- call fetch");
-
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'content-type': 'text/plain',
-            },
-            body: conversationStr
-        });
-/* 
-        if (!response.ok) {
-            throw new Error(`Error! status: ${response.status}`);
-        }
-         */
-        
-        const data = await response.json();
-    
-        console.log("-- after fetch and .json()");
-        console.log("data", data);
-
-/*
-Challenge:
-    1. Update the two commented lines of code to get this working.
-    2. Push to GitHub to redeploy, then test.
-*/
-        conversationStr+=` ${data.reply.choices[0].text} ->`;
-        renderTypewriterText(data.reply.choices[0].text);
-
-    } catch(error) {
-        console.log("Error:", error.toString());
-    }
-
+    const response = await openai.createCompletion({
+        model: 'davinci:ft-scrimba-2023-03-30-23-10-03',
+        prompt: conversationStr,
+        presence_penalty: 0,
+        frequency_penalty: 0.3,
+        max_tokens: 100,
+        temperature: 0,
+        stop: ['\n', '->']
+    });
+    conversationStr += ` ${response.data.choices[0].text} \n`;
+    renderTypewriterText(response.data.choices[0].text);
+    console.log(conversationStr);
 }
 
 function renderTypewriterText(text) {
@@ -71,3 +53,4 @@ function renderTypewriterText(text) {
         chatbotConversation.scrollTop = chatbotConversation.scrollHeight;
     }, 50);
 }
+
