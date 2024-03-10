@@ -11,16 +11,16 @@ const chatbotConversation = document.getElementById('chatbot-conversation');
 let conversationStr = '';
  
 document.addEventListener('submit', (e) => {
-    e.preventDefault()
-    const userInput = document.getElementById('user-input') 
-    conversationStr += ` ${userInput.value} ->`
-    fetchReply()
-    const newSpeechBubble = document.createElement('div')
-    newSpeechBubble.classList.add('speech', 'speech-human')
-    chatbotConversation.appendChild(newSpeechBubble)
-    newSpeechBubble.textContent = userInput.value
-    userInput.value = ''
-    chatbotConversation.scrollTop = chatbotConversation.scrollHeight
+    e.preventDefault();
+    const userInput = document.getElementById('user-input') ;
+    conversationStr += ` ${userInput.value} ->`;
+    fetchReply();
+    const newSpeechBubble = document.createElement('div');
+    newSpeechBubble.classList.add('speech', 'speech-human');
+    chatbotConversation.appendChild(newSpeechBubble);
+    newSpeechBubble.textContent = userInput.value;
+    userInput.value = '';
+    chatbotConversation.scrollTop = chatbotConversation.scrollHeight;
 }) ;
 
 async function fetchReply(){
