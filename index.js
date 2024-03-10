@@ -1,11 +1,11 @@
-import { Configuration, OpenAIApi } from 'openai';
+/* import { Configuration, OpenAIApi } from 'openai';
 
 const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
-
+ */
 const chatbotConversation = document.getElementById('chatbot-conversation');
  
 let conversationStr = '';
@@ -24,7 +24,20 @@ document.addEventListener('submit', (e) => {
 }) ;
 
 async function fetchReply(){
-    const response = await openai.createCompletion({
+
+    const url = 'https://main--servervars.netlify.app/.netlify/functions/fetchAI';
+
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'content-type': 'text/plain',
+        },
+        body: conversationStr
+    });
+    const data = await response.json();
+    console.log(data);
+
+    /* const response = await openai.createCompletion({
         model: 'davinci:ft-scrimba-2023-03-30-23-10-03',
         prompt: conversationStr,
         presence_penalty: 0,
@@ -32,10 +45,11 @@ async function fetchReply(){
         max_tokens: 100,
         temperature: 0,
         stop: ['\n', '->']
-    });
-    conversationStr += ` ${response.data.choices[0].text} \n`;
+    }); */
+
+    /* conversationStr += ` ${response.data.choices[0].text} \n`;
     renderTypewriterText(response.data.choices[0].text);
-    console.log(conversationStr);
+    console.log(conversationStr); */
 }
 
 function renderTypewriterText(text) {
