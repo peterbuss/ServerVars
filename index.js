@@ -23,6 +23,7 @@ document.addEventListener('submit', (e) => {
     // chatbotConversation.scrollTop = chatbotConversation.scrollHeight;
 }) ;
 
+
 // const url = 'https://main--servervars.netlify.app/.netlify/functions/fetchAI';
 async function fetchReply(input){
 

@@ -6,6 +6,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
+
 const handler = async (event) => {
   try {
   const { input } = JSON.parse(event.body) /* new code */
