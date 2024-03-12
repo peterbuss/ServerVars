@@ -6,7 +6,7 @@ document.addEventListener('submit', (e) => {
     e.preventDefault();
     const userInput = document.getElementById('user-input') ;
     conversationStr += ` ${userInput.value} ->`;
-    fetchReply();
+    fetchReply(conversationStr);
     const newSpeechBubble = document.createElement('div');
     newSpeechBubble.classList.add('speech', 'speech-human');
     chatbotConversation.appendChild(newSpeechBubble);
@@ -16,16 +16,16 @@ document.addEventListener('submit', (e) => {
 }) ;
 
 // const url = 'https://main--servervars.netlify.app/.netlify/functions/fetchAI';
-async function fetchReply(){
+async function fetchReply(input){
 
     const url = '/.netlify/functions/fetchAI';
 
     const response = await fetch(url, {
         method: 'POST',
         headers: {
-            'content-type': 'text/plain',
+            'content-type': 'application/json',
         },
-        body: conversationStr
+        body: JSON.stringify({input})
     });
     const data = await response.json();
     console.log(data);
