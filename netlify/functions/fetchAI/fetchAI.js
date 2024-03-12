@@ -29,7 +29,7 @@ const handler = async (event) => {
       //     reply: response.data 
       //   } 
       // ), old
-      body: JSON.stringify({ response }),
+      body: JSON.stringify({ reply: response.data }),
     }
   } catch (error) {
     return { statusCode: 500, body: error.toString() }
