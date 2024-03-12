@@ -14,7 +14,7 @@ const handler = async (event) => {
         // model: 'davinci:ft-scrimba-2023-03-30-23-10-03', old
         model: 'davinci-002',
         // prompt: event.body, old
-        prompt: event.body,
+        prompt: input,
         presence_penalty: 0,
         frequency_penalty: 0.3,
         max_tokens: 100,
