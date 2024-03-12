@@ -31,9 +31,9 @@ async function fetchReply(input){
     console.log(data);
 
     
-    /* conversationStr += ` ${response.data.choices[0].text} \n`;
-    renderTypewriterText(response.data.choices[0].text);
-    console.log(conversationStr); */
+    conversationStr += ` ${data.reply.choices[0].text} \n`;
+    renderTypewriterText(data.reply.choices[0].text);
+    console.log(conversationStr); 
 }
 
 function renderTypewriterText(text) {
