@@ -1,3 +1,20 @@
 {
-	"siteId": "d122bf4f-4211-42d2-8eea-5a13965ddfca"
+	"siteId": "d122bf4f-4211-42d2-8eea-5a13965ddfca",
+	"geolocation": {
+		"data": {
+			"city": "Zurich",
+			"country": {
+				"code": "CH",
+				"name": "Switzerland"
+			},
+			"subdivision": {
+				"code": "ZH",
+				"name": "Zurich"
+			},
+			"timezone": "Europe/Zurich",
+			"latitude": 47.3934,
+			"longitude": 8.5163
+		},
+		"timestamp": 1710235922532
+	}
 }
