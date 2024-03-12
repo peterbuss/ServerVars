@@ -12,7 +12,7 @@ const handler = async (event) => {
   const input  = JSON.parse(event.body) /* new code */
   const response = await openai.createCompletion({
         // model: 'davinci:ft-scrimba-2023-03-30-23-10-03', old
-        model: 'davinci:ft-scrimba-2023-03-30-23-10-03',
+        model: 'davinci-002',
         // prompt: event.body, old
         prompt: input,
         presence_penalty: 0,
